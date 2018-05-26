@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.police.innovation.model.CrimeReport;
 
 @Repository
-public interface CrimeReportRepo extends MongoRepository<CrimeReport, String> {
+public interface CrimeReportRepo extends MongoRepository<CrimeReport, String>, CrimeReportRepoCustom {
 	
 	
 	
