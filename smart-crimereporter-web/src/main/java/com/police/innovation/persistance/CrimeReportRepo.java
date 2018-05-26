@@ -8,7 +8,5 @@ import java.util.List;
 
 @Repository
 public interface CrimeReportRepo extends MongoRepository<CrimeReport, String> {
-	List<CrimeReport> findAllById(Iterable<String> strings);
-
-	CrimeReport findByEmailId(String emailId);
+	
 }

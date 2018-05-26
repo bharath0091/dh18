@@ -12,17 +12,12 @@ import java.util.List;
 public class CrimeReportRepoService {
 	Logger LOG = LoggerFactory.getLogger(this.getClass().getName());
 
-	@Autowired
-	private CrimeReportRepo crimeReportRepo;
 
-	public void updateSentNotifications(CrimeReport crimeReport) {
-		crimeReport.setEmailFlag(true);
-		crimeReportRepo.save(crimeReport);
-		LOG.info("CrimeReport for {} is sent", crimeReport.getEmailId());
-	}
+	public void updateSentNotifications(CrimeReport crimeReport) {}
 
 	public List<CrimeReport> getUserSearchCriteria() {
-		return crimeReportRepo.findAll();
+		return null;
+		
 	}
 
 }

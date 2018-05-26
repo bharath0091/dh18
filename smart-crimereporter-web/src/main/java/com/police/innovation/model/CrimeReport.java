@@ -5,26 +5,25 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import groovyjarjarantlr.collections.List;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 @Document(collection = "CrimeReportRepo")
 @Getter
 @Setter
 public class CrimeReport {
-	private String emailId;
-	private String departureStation;
-	private String arrivalStation;
+	private String type;
 	private String date;
-	private BigDecimal lastAvailablePrice= BigDecimal.valueOf(10.0);
-	private BigDecimal todayAvailablePrice= BigDecimal.valueOf(10.0);
-	private LocalDateTime lastUpdated;
-	private boolean emailFlag;
-
-	@Id
-	private String id;
-
-	public void initiateId() {
-		id = emailId + departureStation + arrivalStation + date;
-	}
+	private String time;
+	private String address;
+	private String locality;
+	private String description;
+	private String convict;
+	private String accuser;
+	private HashMap<String, ArrayList<String>> index;
+	
 }
