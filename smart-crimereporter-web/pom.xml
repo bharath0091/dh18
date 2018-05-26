@@ -38,14 +38,6 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
-			<groupId>com.police.innovation</groupId>
-			<artifactId>smart-crimereporter-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.police.innovation</groupId>
-			<artifactId>smart-crimereporter-commons</artifactId>
-		</dependency>
 	</dependencies>
 
 	<build>

@@ -21,7 +21,6 @@
 
 
     <modules>
-        <module>smart-crimereporter-commons</module>
         <module>smart-crimereporter-web</module>
     </modules>
 	
@@ -79,11 +78,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 			<version>${spring.boot.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security.oauth</groupId>
-			<artifactId>spring-security-oauth2</artifactId>
-			<version>2.3.3.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
