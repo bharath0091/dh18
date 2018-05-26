@@ -1,18 +1,15 @@
 package com.police.innovation.model;
 
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import groovyjarjarantlr.collections.List;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
-@Document(collection = "CrimeReportRepo")
+import lombok.Getter;
+import lombok.Setter;
+//import org.springframework.data.annotation.Id;
+//import org.springframework.data.mongodb.core.mapping.Document;
+
+//@Document(collection = "CrimeReportRepo")
 @Getter
 @Setter
 public class CrimeReport {
@@ -25,5 +22,6 @@ public class CrimeReport {
 	private String convict;
 	private String accuser;
 	private HashMap<String, ArrayList<String>> index;
+	private List<String> others;
 	
 }

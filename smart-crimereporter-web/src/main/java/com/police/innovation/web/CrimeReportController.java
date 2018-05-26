@@ -4,14 +4,15 @@ package com.police.innovation.web;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.police.innovation.model.CrimeReport;
 import com.police.innovation.persistance.CrimeReportRepo;
 
-@Controller
+@RestController
 public class CrimeReportController {
     Logger LOG = LoggerFactory.getLogger(this.getClass().getName());
 
@@ -19,10 +20,21 @@ public class CrimeReportController {
     private CrimeReportRepo crimeReportRepo;
 
     @GetMapping(path = "/")
-    public String editTokenEndpoint(@ModelAttribute CrimeReport crimeReport) {
+    public CrimeReport getReportTest(@ModelAttribute CrimeReport crimeReport) {
         LOG.info("CrimeReport home page");
-        return "crimeReport";
+        return new CrimeReport();
     }
 
 
+    @PostMapping(path = "/crimes")
+    public CrimeReport addReport(@ModelAttribute CrimeReport crimeReport) {
+        LOG.info("Entered controller");
+        
+        
+        
+        
+        
+        crimeReportRepo.save(crimeReport);
+        return new CrimeReport();
+    }
 }
