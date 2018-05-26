@@ -3,15 +3,15 @@ package com.police.innovation.model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-//import org.springframework.data.annotation.Id;
-//import org.springframework.data.mongodb.core.mapping.Document;
 
-//@Document(collection = "CrimeReportRepo")
 @Getter
 @Setter
+@Builder
 public class CrimeReport {
 	private String type;
 	private String date;
@@ -19,9 +19,10 @@ public class CrimeReport {
 	private String address;
 	private String locality;
 	private String description;
-	private String convict;
 	private String accuser;
-	private HashMap<String, ArrayList<String>> index;
+	private Map<String, List<String>> index;
 	private List<String> others;
+	private Convict convict;
+	
 	
 }

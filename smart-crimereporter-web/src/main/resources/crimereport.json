@@ -1,0 +1,19 @@
+{
+  "type": "theft",
+  "date": "2018-05-26",
+  "time": "12:46:12:126",
+  "address": "1189 TH, Bertha Von SutnerLan, Amstelveen",
+  "locality": "Amstelveen",
+  "description": "chain snatching",
+  "convict": "Joseph kamlep",
+  "accuser": "Ronald",
+  "index": {
+    "theft": [
+      "chain snatching",
+      "gold lost"
+    ]
+  },
+  "others": [
+    "chain snatching, theft, chain, gold, small criminal"
+  ]
+}

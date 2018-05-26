@@ -2,7 +2,7 @@ package com.police.innovation.model;
 
 import java.util.List;
 
-import groovy.transform.builder.Builder;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
