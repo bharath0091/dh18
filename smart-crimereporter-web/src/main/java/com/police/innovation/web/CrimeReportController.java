@@ -25,7 +25,7 @@ public class CrimeReportController {
     @GetMapping(path = "/")
     public CrimeReport getReportTest(@ModelAttribute CrimeReport crimeReport) {
         LOG.info("CrimeReport home page");
-        return new CrimeReport();
+        return null;
     }
 
 
