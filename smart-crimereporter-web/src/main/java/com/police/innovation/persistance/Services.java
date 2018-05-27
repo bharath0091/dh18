@@ -1,17 +1,19 @@
 package com.police.innovation.persistance;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
-import com.police.innovation.model.DialogueResponse;
+import java.util.HashMap;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.HashMap;
+import com.police.innovation.model.CaseFileResponse;
+import com.police.innovation.model.DialogueResponse;
 
 
 @Service
@@ -32,8 +34,28 @@ public class Services {
 
         return rs.getResult().getParameters();
     }
+    
+    public String getCaseFile() {
 
-    private HttpHeaders getHttpHeaders() {
+        String url = "https://api.acceptatie.politie.nl/./v4/gezocht/dossiers?language=nl&lat=52.2861962&lon=4.7820705&radius=5.0&maxnumberofitems=10&offset=0";
+        
+        HttpEntity<String> entity = new HttpEntity<String>(populateRequestHeaders());
+        ResponseEntity<CaseFileResponse> response = restTemplate.exchange(url, HttpMethod.GET, entity, CaseFileResponse.class);
+        CaseFileResponse rs = response.getBody();
+
+
+        return rs.toString();
+    }
+
+    private HttpHeaders populateRequestHeaders() {
+    	 HttpHeaders httpHeader = new HttpHeaders();
+         httpHeader.add("Accept", "application/json");
+         httpHeader.add("x-gs-major-version", "93");
+         httpHeader.setContentType(MediaType.APPLICATION_JSON);
+         return httpHeader;
+	}
+
+	private HttpHeaders getHttpHeaders() {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(HttpHeaders.AUTHORIZATION, "Bearer 8933675d075f49f39ec08be3afdeb2a4");
 
