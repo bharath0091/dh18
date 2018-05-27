@@ -3,6 +3,7 @@ package com.police.innovation.web;
 
 import java.util.List;
 
+import com.police.innovation.persistance.Services;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +18,17 @@ import com.police.innovation.persistance.CrimeReportRepo;
 
 @RestController
 public class CrimeReportController {
-    Logger LOG = LoggerFactory.getLogger(this.getClass().getName());
 
+    Logger LOG = LoggerFactory.getLogger(this.getClass().getName());
+    @Autowired
+    private Services findIntentsService;
     @Autowired
     private CrimeReportRepo crimeReportRepo;
 
     @GetMapping(path = "/")
-    public CrimeReport getReportTest(@ModelAttribute CrimeReport crimeReport) {
+    public CrimeReport getReportTest() {
         LOG.info("CrimeReport home page");
+        findIntentsService.getIntents("a german man was carrying a gun for self defense");
         return null;
     }
 
