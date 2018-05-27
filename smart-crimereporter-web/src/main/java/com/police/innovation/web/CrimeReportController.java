@@ -39,9 +39,12 @@ public class CrimeReportController {
         
         List<CrimeReport> pastCrimeReport = crimeReportRepo.findPast(crimeReport.getType(), crimeReport.getLocality());
         
+        List<CrimeReport> relatedCrimes = crimeReportRepo.findRelated(crimeReport.getDate(), crimeReport.getLocality());
+        
         if(null != pastCrimeReport && !pastCrimeReport.isEmpty()) {
         	return FinalReports.builder()
-        					.crimeReport(pastCrimeReport)
+        					.pastCrimes(pastCrimeReport)
+        					.relatedCrimes(relatedCrimes)
         					.build();
         } else {
         	return FinalReports.builder()
