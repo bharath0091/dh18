@@ -1,5 +1,6 @@
 package com.police.innovation.model;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +24,7 @@ public class CrimeReport {
 	private List<String> others;
 	private Convict convict;
 	private Officer officer;
+	private HashMap parameters;
 
 
 	@Id

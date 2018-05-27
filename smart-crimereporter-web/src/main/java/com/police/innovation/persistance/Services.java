@@ -28,10 +28,6 @@ public class Services {
         ResponseEntity<DialogueResponse> response = restTemplate.exchange("https://api.api.ai/v1/query?v=20150910&query=" + description + "&lang=en-GB&sessionId=01", HttpMethod.GET, httpEntity, DialogueResponse.class);
         DialogueResponse rs = response.getBody();
 
-
-        LOG.info("Weapon-Type : " + rs.getResult().getParameters().get("weapon-type").toString());
-        LOG.info("attacker-type : " + rs.getResult().getParameters().get("weapon-type").toString());
-
         return rs.getResult().getParameters();
     }
     
