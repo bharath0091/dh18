@@ -1,8 +1,8 @@
 ---
 applications:
-- name: PriceWatcher
+- name: crimereport
   host: crimereport
-  domain: cf.devnet.police.com
+  domain: cf.devnet.klm.com
   memory: 1024M
   disk_quota: 256M
   instances: 1
