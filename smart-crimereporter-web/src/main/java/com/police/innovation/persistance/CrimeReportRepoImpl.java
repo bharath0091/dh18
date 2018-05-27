@@ -24,7 +24,7 @@ public class CrimeReportRepoImpl implements CrimeReportRepoCustom{
      } else {
     	  mongoOperations.save(crimeReport);
      }
-	return crimeReport;
+	return null;
       
 	}
 

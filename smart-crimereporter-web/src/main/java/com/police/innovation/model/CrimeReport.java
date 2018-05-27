@@ -23,6 +23,7 @@ public class CrimeReport {
 	private Map<String, List<String>> index;
 	private List<String> others;
 	private Convict convict;
+	private Officer officer;
 	
 	
 }
