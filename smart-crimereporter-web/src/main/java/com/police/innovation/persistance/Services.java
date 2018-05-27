@@ -50,7 +50,7 @@ public class Services {
     private HttpHeaders populateRequestHeaders() {
     	 HttpHeaders httpHeader = new HttpHeaders();
          httpHeader.add("Accept", "application/json");
-         httpHeader.add("x-gs-major-version", "93");
+         httpHeader.add("x-api-key", "b1a3c979-6561-4e67-81a9-78fc00dc23c5");
          httpHeader.setContentType(MediaType.APPLICATION_JSON);
          return httpHeader;
 	}

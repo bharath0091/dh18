@@ -12,6 +12,7 @@ import lombok.Setter;
 @Builder
 public class FinalReports {
 
-	private List<CrimeReport> crimeReport;
+	private List<CrimeReport> pastCrimes;
+	private List<CrimeReport> relatedCrimes;
 	private String error;
 }

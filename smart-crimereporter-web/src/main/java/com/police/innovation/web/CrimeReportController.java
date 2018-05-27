@@ -7,7 +7,10 @@ import com.police.innovation.persistance.Services;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.police.innovation.model.CrimeReport;
 import com.police.innovation.model.FinalReports;
@@ -31,19 +34,24 @@ public class CrimeReportController {
 
 
     @PostMapping(path = "/crimes")
-    public FinalReports addReport(@RequestBody CrimeReport crimeReport) {
+    public FinalReports addReport(@ModelAttribute CrimeReport crimeReport) {
         LOG.info("Entered controller to fetch past crime reports");
-
+        
         List<CrimeReport> pastCrimeReport = crimeReportRepo.findPast(crimeReport.getType(), crimeReport.getLocality());
-        crimeReportRepo.save(crimeReport);
+        
+        List<CrimeReport> relatedCrimes = crimeReportRepo.findRelated(crimeReport.getDate(), crimeReport.getLocality());
+        
         if(null != pastCrimeReport && !pastCrimeReport.isEmpty()) {
         	return FinalReports.builder()
-        					.crimeReport(pastCrimeReport)
+        					.pastCrimes(pastCrimeReport)
+        					.relatedCrimes(relatedCrimes)
         					.build();
         } else {
         	return FinalReports.builder()
         					.error("There are no matching records found for this crime")
         					.build();
         }
+        
+       
     }
 }
