@@ -18,11 +18,9 @@ public class CrimeReportRepoImpl implements CrimeReportRepoCustom{
 	   Query query = new Query();
        query.addCriteria(where("type").is(type).and("locality").is(locality));
      
-     List<CrimeReport> crimeReport = mongoOperations.find(query, CrimeReport.class);
-     if(null != crimeReport && !crimeReport.isEmpty()) {
-    	 return crimeReport;
-     } else {
-    	  mongoOperations.save(crimeReport);
+     List<CrimeReport> crimeReports = mongoOperations.find(query, CrimeReport.class);
+     if(null != crimeReports && !crimeReports.isEmpty()) {
+    	 return crimeReports;
      }
 	return null;
       

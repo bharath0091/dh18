@@ -1,17 +1,16 @@
 package com.police.innovation.model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.annotation.Id;
 
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class CrimeReport {
 	private String type;
 	private String date;
@@ -24,6 +23,7 @@ public class CrimeReport {
 	private List<String> others;
 	private Convict convict;
 	private Officer officer;
-	
-	
-}
+
+
+	@Id
+	private String id;}
