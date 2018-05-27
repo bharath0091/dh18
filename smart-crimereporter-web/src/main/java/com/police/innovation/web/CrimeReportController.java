@@ -3,6 +3,7 @@ package com.police.innovation.web;
 
 import java.util.List;
 
+import com.police.innovation.client.KadasterClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,13 @@ public class CrimeReportController {
     @Autowired
     private CrimeReportRepo crimeReportRepo;
 
+    @Autowired
+    private KadasterClient kadasterClient;
+
     @GetMapping(path = "/")
-    public CrimeReport getReportTest(@ModelAttribute CrimeReport crimeReport) {
+    public CrimeReport getReportTest() {
+
+        kadasterClient.suggestLocation("groningen h.w.mesdagstraat 21");
         LOG.info("CrimeReport home page");
         return null;
     }
